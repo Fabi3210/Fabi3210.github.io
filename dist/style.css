@@ -63,7 +63,7 @@
 
 .header nav {
   position: relative;
-  background-color: white;
+  background-color: #e6d8d8;
   position: relative;
   padding-top: 1.0625rem;
   padding-bottom: 1.0625rem;
@@ -217,5 +217,18 @@ a, a:visited, a:hover {
 
 #toTop:hover {
   background-color: #555;
+}
+
+.end-point {
+  background-color: #e6d8d8;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 50px;
+  color: #2d314d;
+  text-align: center;
+}
+
+.end-point > input {
+  border-radius: 7.5px;
 }
 /*# sourceMappingURL=style.css.map */
