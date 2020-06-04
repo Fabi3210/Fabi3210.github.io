@@ -62,3 +62,43 @@ var x = setInterval(function () {
     }
 }, 1000);
 
+//reset fade after anchor
+
+function resetFade() {
+    fadeElems.forEach(function(element) {
+        element.classList.remove('fade-in');
+        element.classList.add('fade-out');
+        })
+        
+        bodyVar.classList.remove('noscroll');
+}
+
+//pw
+const charIN = document.querySelector('#char-in')
+const lenghtIN = document.querySelector('#length-in')
+const pwDis = document.querySelector('#pwDis')
+const charDis = document.querySelector('#charDis')
+var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+var length = 8;
+var pw;
+
+function genPW() {
+
+             pw = "";
+        for (var i = 0, n = charset.length; i < length; ++i) {
+                pw += charset.charAt(Math.floor(Math.random() * n));
+        }
+        
+        pwDis.innerHTML = `password: ${pw}`
+
+}
+
+function addChar() {
+    if (charset.includes(charIN.value)) {
+        charDis.innerHTML = `the char "${charIN.value}" is already in the charset`
+    } else {
+    charset += charIN.value;
+    charDis.innerHTML = `added ${charIN} to the charset`
+    }
+    charIN.value = ""
+}
