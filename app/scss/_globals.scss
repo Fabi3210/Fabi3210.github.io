@@ -67,5 +67,18 @@ a, a:visited, a:hover {
     background-color: #555;
   }
 
+.end-point {
+    background-color: $white2;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+    color: $darkBlue;
+    text-align: center;
 
+    >input {
+        border-radius: 7.5px;
+    }
 
+}
+
+//pw
