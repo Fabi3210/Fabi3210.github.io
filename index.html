@@ -41,16 +41,16 @@
 
 <div class="header__menu  has-fade">
     <a href="#">Games</a>
-    <a href="#">Other Stuff</a>
+    <a href="#other-stuff" onclick="resetFade()">Other Stuff</a>
     <a href="#">secret Stuff</a>
 </div>
 
 </header>
 
-    <div class="bd">
-        <p id="bdd"></p>
-    </div>
-    
+<div class="bd">
+    <p id="bdd"></p>
+</div>
+
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa natus pariatur consequuntur consequatur, culpa itaque in laudantium quasi, voluptas deserunt quod corporis dolorem distinctio quaerat hic debitis nam dolore mollitia?
 Sapiente asperiores dignissimos ea eos ut iste aliquam nostrum soluta eaque? Est alias autem possimus doloribus facilis, ipsam consequuntur laboriosam ullam adipisci suscipit voluptas, commodi illo cupiditate. Quaerat, modi exercitationem?
 Suscipit architecto ab, eius odio commodi aliquid voluptate esse consequatur neque cupiditate ullam laudantium atque corrupti provident veritatis pariatur cumque illum perferendis. Magnam exercitationem, nihil ipsam voluptatum obcaecati similique optio?
@@ -76,10 +76,21 @@ Expedita temporibus numquam nam eveniet voluptas sunt enim iste, neque veniam fa
 Velit, voluptas. Reprehenderit quas corporis molestiae blanditiis mollitia quos nostrum nobis eveniet accusantium ea similique excepturi, iure voluptatum doloremque eligendi hic quod sint praesentium tenetur asperiores consectetur molestias laboriosam. Libero.
 Mollitia, voluptates in eos aut, nam sed illo temporibus obcaecati quidem odio error laborum nulla officia repellat a nisi fuga, doloremque laboriosam dolorem reiciendis. Dolorum animi ex blanditiis obcaecati quod?
 Voluptate mollitia consectetur inventore, corrupti ex ab eius officia, voluptatem quis id nulla possimus quia distinctio adipisci dolores. Suscipit, veniam voluptatibus modi nobis quos quo est ipsam quibusdam error. Officia?
-    
+
+   <div id="other-stuff" class="end-point">
+       <h1>Password Generator</h1>
+       <p>add charset (standart is: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")</p>
+       <input type="text" id="char-in" maxlength="1" placeholder="set charset" onkeypress="if (window.event.keyCode == 13) addChar()" required>
+       <p id="charDis"></p>
+       <p>length: 8</p>
+       <button onclick="genPW()">Generate</button>
+       
+       <p id="pwDis"></p>
+   </div>
 
     <button id="toTop" onclick="topFunction()">Back to the top</button>
 </body>
 <footer>©Fabi</footer>
 <script src="app/js/script.js"></script>
 </html>
+
